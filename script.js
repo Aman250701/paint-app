@@ -11,6 +11,7 @@ const loadStorageBtn = document.getElementById('load-storage');
 const clearStorageBtn = document.getElementById('clear-storage');
 const downloadBtn = document.getElementById('download');
 const { body } = document;
+const timeInMilliseconds = 1500;
 
 // Global Variables
 const canvas = document.createElement('canvas');
@@ -89,7 +90,7 @@ clearCanvasBtn.addEventListener('click', () => {
   drawnArray = [];
   // Active Tool
   activeToolEl.textContent = 'Canvas Cleared';
-  setTimeout(switchToBrush, 1500);
+  setTimeout(switchToBrush, timeInMilliseconds);
 });
 
 // Draw what is stored in DrawnArray
@@ -169,7 +170,7 @@ saveStorageBtn.addEventListener('click', () => {
   localStorage.setItem('savedCanvas', JSON.stringify(drawnArray));
   // Active Tool
   activeToolEl.textContent = 'Canvas Saved';
-  setTimeout(switchToBrush, 1500);
+  setTimeout(switchToBrush, timeInMilliseconds);
 });
 
 // Load from Local Storage
@@ -179,10 +180,10 @@ loadStorageBtn.addEventListener('click', () => {
     restoreCanvas();
     // Active Tool
     activeToolEl.textContent = 'Canvas Loaded';
-    setTimeout(switchToBrush, 1500);
+    setTimeout(switchToBrush, timeInMilliseconds);
   } else {
     activeToolEl.textContent = 'No Canvas Found';
-    setTimeout(switchToBrush, 1500);
+    setTimeout(switchToBrush, timeInMilliseconds);
   }
 });
 
@@ -191,7 +192,7 @@ clearStorageBtn.addEventListener('click', () => {
   localStorage.removeItem('savedCanvas');
   // Active Tool
   activeToolEl.textContent = 'Local Storage Cleared';
-  setTimeout(switchToBrush, 1500);
+  setTimeout(switchToBrush, timeInMilliseconds);
 });
 
 // Download Image
@@ -200,7 +201,7 @@ downloadBtn.addEventListener('click', () => {
   downloadBtn.download = 'Aman_Paint.jpeg';
   // Active Tool
   activeToolEl.textContent = 'Image File Saved';
-  setTimeout(switchToBrush, 1500);
+  setTimeout(switchToBrush, timeInMilliseconds);
 });
 
 // Event Listener
